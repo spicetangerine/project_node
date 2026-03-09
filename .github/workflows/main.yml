@@ -19,11 +19,11 @@ jobs:
           node-version: "20"
 
       - name: Install frontend dependencies
-        working-directory: ./fronteapp
+        working-directory: ./frontapp
         run: npm ci
 
       - name: Build Vue app
-        working-directory: ./fronteapp
+        working-directory: ./frontapp
         run: npm run build
 
       - name: Setup SSH key
