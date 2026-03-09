@@ -1,4 +1,4 @@
-require('dotenv').config({path : './database/dbConfig.env'});
+require("dotenv").config({ path: "./database/dbConfig.env" });
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -13,23 +13,20 @@ app.get("/hello", (req, res) => {
   res.send("Hello World!");
 });
 
-
 app.get("/api/board", (req, res) => {
-  res.send({ title: "노드 api 서버 update!!!!" });
+  res.send({ title: "노드 api 서버 success!!!!" });
 });
 
 // vue.js build 이후
 
-const path = require('path');
-const publicPath = path.join(__dirname, 'public');
+const path = require("path");
+const publicPath = path.join(__dirname, "public");
 app.use(express.static(publicPath));
 
 app.get("/", function (req, res, next) {
   res.sendFile(path.join(__dirname, "./public", "index.html"));
 });
 
-
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, "./public", "index.html"));
 });
-
