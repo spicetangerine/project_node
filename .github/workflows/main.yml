@@ -36,9 +36,9 @@ jobs:
       - name: SSH into server and deploy
         run: |
           ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
-            cd ~/project_node
-            git pull origin main
-            npm install --prefix backend
-            pm2 restart app || pm2 start backend/app.js --name "app"
-            pm2 save
+          export PATH=$PATH:/usr/local/bin
+          cd ~/project_node
+          git pull origin main
+          pm2 restart app || pm2 start backend/app.js --name "app"
+          pm2 save
           EOF
